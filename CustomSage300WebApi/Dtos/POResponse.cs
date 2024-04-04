@@ -1,0 +1,25 @@
+// namespace CustomSage300WebApi.Dtos;
+//
+// public record POResponse( 
+//     decimal PORISEQ ,
+//     decimal AUDTDATE ,
+//     decimal AUDTTIME ,
+//     string AUDTUSER ,
+//     string AUDTORG ,
+//     short OPERATION ,
+//     decimal DATE ,
+//     decimal POSTDATE ,
+//     short ISCOMPLETE ,
+//     decimal DTCOMPLETE ,
+//     string CURRENCY ,
+//     short ISPRINTED ,
+//     string PONUMBER ,
+//     string LASTRECEIP ,
+//     string DESCRIPTIO ,
+//     string REFERENCE ,
+//     string VDCODE ,
+//     string VDNAME ,
+//     decimal SCAMOUNT ,
+//     decimal FCAMOUNT ,
+//     string AGFISCYEAR ,
+//     string TRCURRENCY);
