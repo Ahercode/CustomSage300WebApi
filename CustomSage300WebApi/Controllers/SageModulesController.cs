@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CustomSage300WebApi.Controllers;
 
+[Route("api/[controller]")]
 public class SageModulesController: ControllerBase
 {
     private readonly IMapper _mapper;
@@ -26,7 +27,7 @@ public class SageModulesController: ControllerBase
     }
     
     [HttpGet("{id}")]
-    public IActionResult GetASageModule(int id)
+    public IActionResult GetSageModule(int id)
     {
         var sageModule = _context.SageModules.FirstOrDefault(x => x.Id == id);
         var sageModuleDto = _mapper.Map<SageModuleResponse>(sageModule);

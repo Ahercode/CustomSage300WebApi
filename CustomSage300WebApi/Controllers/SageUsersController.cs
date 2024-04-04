@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CustomSage300WebApi.Controllers;
 
+[Route("api/[controller]")]
 public class SageUsersController : ControllerBase
 {
     private readonly IMapper _mapper;
@@ -26,7 +27,7 @@ public class SageUsersController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public IActionResult GetASageUser(int id)
+    public IActionResult GetSageUser(int id)
     {
         var sageUser = _context.SageUsers.FirstOrDefault(x => x.Id == id);
         var sageUserDto = _mapper.Map<SageUserResponse>(sageUser);
