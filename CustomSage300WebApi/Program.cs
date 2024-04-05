@@ -17,13 +17,30 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
+
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("../swagger/v1/swagger.json", "AhercodeWebAPI v1"));
 
 app.UseHttpsRedirection();
+app.UseCors(options=> {
+
+    const string devUrl = "http://localhost:3000";
+    const string devUrlBack = "http://localhost:5173/";
+    const string productionEndUrl = "http://208.177.44.15/";
+    const string sipEndpoint = "https://app.sipconsult.net";
+    const string productionEndUrls = "https://208.177.44.15/";
+    const string enpNew = "https://enp.sipconsult.net/";
+
+    options.WithOrigins(devUrl, productionEndUrl, productionEndUrls, devUrlBack, sipEndpoint, enpNew)
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
+});
 
 app.UseAuthorization();
 

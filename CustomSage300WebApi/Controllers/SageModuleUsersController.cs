@@ -81,7 +81,7 @@ public class SageModuleUsersController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest("Failed to update record here is the error: "+ex.Message);
+            return BadRequest("Failed to update record here is the error: " + ex.Message);
         }
 
         return Ok(updateSageModuleUserRequest);
