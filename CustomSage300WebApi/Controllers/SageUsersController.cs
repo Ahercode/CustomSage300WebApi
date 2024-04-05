@@ -3,6 +3,7 @@ using CustomSage300WebApi.DBContext;
 using CustomSage300WebApi.Dtos;
 using CustomSage300WebApi.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CustomSage300WebApi.Controllers;
 
@@ -19,17 +20,17 @@ public class SageUsersController : ControllerBase
     
     
     [HttpGet]
-    public IActionResult GetAllSageUsers()
+    public async Task<ActionResult<SageUserResponse>> GetAllSageUsers()
     {
-        var sageUsers = _context.SageUsers.ToList();
+        var sageUsers = await _context.SageUsers.ToListAsync();
         var sageUsersDto = _mapper.Map<IEnumerable<SageUserResponse>>(sageUsers);
         return Ok(sageUsersDto);
     }
     
     [HttpGet("{id}")]
-    public IActionResult GetSageUser(int id)
+    public async Task<ActionResult<SageUserResponse>> GetSageUser(int id)
     {
-        var sageUser = _context.SageUsers.FirstOrDefault(x => x.Id == id);
+        var sageUser = await _context.SageUsers.FirstOrDefaultAsync(x => x.Id == id);
         var sageUserDto = _mapper.Map<SageUserResponse>(sageUser);
         
         if(sageUserDto == null)
@@ -39,7 +40,7 @@ public class SageUsersController : ControllerBase
     }
     
     [HttpPost]
-    public IActionResult CreateSageUser(SageUserRequest createSageUserRequest)
+    public async Task<ActionResult<SageUserRequest>> CreateSageUser(SageUserRequest createSageUserRequest)
     {
         if(!ModelState.IsValid)
             return BadRequest("Invalid data provided");
@@ -50,13 +51,13 @@ public class SageUsersController : ControllerBase
 
             if (sageUser.Username != null)
             {
-                var sageUserInDb = _context.SageUsers.FirstOrDefault(x => x.Username == sageUser.Username);
+                var sageUserInDb = await _context.SageUsers.FirstOrDefaultAsync(x => x.Username == sageUser.Username);
                 if (sageUserInDb != null)
                     return BadRequest("Sage User already exists");
             }
 
-            _context.SageUsers.Add(sageUser);
-            _context.SaveChanges();
+            await _context.SageUsers.AddAsync(sageUser);
+            await _context.SaveChangesAsync();
         
             return Ok("Sage User created successfully");
         
@@ -68,19 +69,19 @@ public class SageUsersController : ControllerBase
     }
     
     [HttpPut("{id}")]
-    public IActionResult UpdateSageUser(int id, SageUserRequest updateSageUserRequest)
+    public async Task<ActionResult<SageUserRequest>> UpdateSageUser(int id, SageUserRequest updateSageUserRequest)
     {
         if(!ModelState.IsValid)
             return BadRequest("Invalid data provided");
 
         try
         {
-            var sageUser = _context.SageUsers.FirstOrDefault(x => x.Id == id);
+            var sageUser = await _context.SageUsers.FirstOrDefaultAsync(x => x.Id == id);
             if (sageUser == null)
                 return NotFound("Sage User not found");
 
             _mapper.Map(updateSageUserRequest, sageUser);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         
             return Ok("Sage User updated successfully");
         
@@ -92,11 +93,11 @@ public class SageUsersController : ControllerBase
     }
     
     [HttpDelete("{id}")]
-    public IActionResult DeleteSageUser(int id)
+    public async Task<ActionResult<SageUserRequest>> DeleteSageUser(int id)
     {
         try
         {
-            var sageUser = _context.SageUsers.FirstOrDefault(x => x.Id == id);
+            var sageUser = await _context.SageUsers.FirstOrDefaultAsync(x => x.Id == id);
             if (sageUser == null)
                 return NotFound("Sage User not found");
 
