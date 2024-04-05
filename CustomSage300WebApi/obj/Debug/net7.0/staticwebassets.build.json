@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "BCATjQbUyIxrgq5R+DqDKoZ1IIRtudpriO3L2J2/Mas=",
+  "Source": "CustomSage300WebApi",
+  "BasePath": "_content/CustomSage300WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
