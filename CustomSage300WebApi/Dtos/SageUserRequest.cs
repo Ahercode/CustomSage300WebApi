@@ -11,5 +11,4 @@ public record SageUserRequest
         string? Username, 
         string? Password, 
         string? isAdmin, 
-        string? Status
-        );
+        string? Status);

@@ -9,6 +9,7 @@ public class RequestMapping : Profile
     public RequestMapping()
     {
         CreateMap<POPORI, POResponse>();
+        CreateMap<PORequest, POPORI>().ReverseMap();
         CreateMap<SageUserRequest, SageUser>();
         CreateMap<SageUser, SageUserResponse>();
         CreateMap<SageModuleRequest, SageModule>();

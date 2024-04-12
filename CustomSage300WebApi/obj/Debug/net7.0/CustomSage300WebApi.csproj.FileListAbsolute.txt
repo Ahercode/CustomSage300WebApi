@@ -75,3 +75,7 @@
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/obj/Debug/net7.0/CustomSage300WebApi.pdb
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/obj/Debug/net7.0/CustomSage300WebApi.genruntimeconfig.cache
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/obj/Debug/net7.0/ref/CustomSage300WebApi.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll

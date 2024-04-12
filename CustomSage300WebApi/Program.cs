@@ -8,9 +8,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 var workFlowConnection = builder.Configuration.GetConnectionString("WorkFlowConnection");
 builder.Services.AddDbContext<SageDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<WorkFlowDbContext>(options => options.UseSqlServer(workFlowConnection));
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSwaggerGen();
 

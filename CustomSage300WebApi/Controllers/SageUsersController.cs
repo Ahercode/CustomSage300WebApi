@@ -4,6 +4,7 @@ using CustomSage300WebApi.Dtos;
 using CustomSage300WebApi.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace CustomSage300WebApi.Controllers;
 
@@ -40,8 +41,12 @@ public class SageUsersController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<SageUserRequest>> CreateSageUser(SageUserRequest createSageUserRequest)
+    public async Task<ActionResult<SageUser>> CreateSageUser(SageUserRequest createSageUserRequest)
     {
+         
+        // Log the incoming request
+        Console.WriteLine($"Received request: {JsonConvert.SerializeObject(createSageUserRequest)}");
+
         if(!ModelState.IsValid)
             return BadRequest("Invalid data provided");
 
@@ -55,12 +60,10 @@ public class SageUsersController : ControllerBase
                 if (sageUserInDb != null)
                     return BadRequest("Sage User already exists");
             }
-
             await _context.SageUsers.AddAsync(sageUser);
             await _context.SaveChangesAsync();
         
             return Ok("Sage User created successfully");
-        
         }
         catch (Exception e)
         {
