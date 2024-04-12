@@ -21,6 +21,7 @@ public partial class WorkFlowDbContext : DbContext
     public virtual DbSet<SageModuleUser> SageModuleUsers { get; set; }
 
     public virtual DbSet<SageUser> SageUsers { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<SageModule>(entity =>
@@ -31,7 +32,6 @@ public partial class WorkFlowDbContext : DbContext
 
         modelBuilder.Entity<SageModuleUser>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.isApprover).IsFixedLength();
         });
 

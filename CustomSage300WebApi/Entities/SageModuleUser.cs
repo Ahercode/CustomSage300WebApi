@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CustomSage300WebApi.Entities;
 
-[Keyless]
 [Table("SageModuleUser")]
 public partial class SageModuleUser
 {
+    [Key]
     public int Id { get; set; }
 
     public int? SageModuleId { get; set; }

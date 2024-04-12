@@ -64,7 +64,7 @@ public class SageUsersController : ControllerBase
         }
         catch (Exception e)
         {
-            return BadRequest("An error occurred while creating Sage User");
+            return BadRequest($"An error occurred while creating Sage User\n {e}");
         }
     }
     

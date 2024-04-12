@@ -88,7 +88,7 @@ public class SageModulesController: ControllerBase
         }
         catch (Exception e)
         {
-            return BadRequest("An error occurred while updating Sage Module");
+            return BadRequest($"An error occurred while updating Sage Module\n {e}");
         }
     }
 
