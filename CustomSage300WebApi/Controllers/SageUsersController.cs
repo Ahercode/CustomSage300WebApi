@@ -41,10 +41,9 @@ public class SageUsersController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<SageUser>> CreateSageUser(SageUserRequest createSageUserRequest)
+    public async Task<ActionResult<SageUserRequest>> CreateSageUser(SageUserRequest createSageUserRequest)
     {
-         
-        // Log the incoming request
+        // Log the request
         Console.WriteLine($"Received request: {JsonConvert.SerializeObject(createSageUserRequest)}");
 
         if(!ModelState.IsValid)

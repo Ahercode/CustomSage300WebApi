@@ -54,10 +54,10 @@ public class PurchaseOrderController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        _mapper.Map(purchaseOrderToPatch, existingPurchaseOrder); // Map the changes back to the POPORI entity
+        _mapper.Map(purchaseOrderToPatch, existingPurchaseOrder);
 
-        _context.POPORIs.Update(existingPurchaseOrder); // Tell Entity Framework to track the entity as modified
-        await _context.SaveChangesAsync(); // Save the changes to the database
+        _context.POPORIs.Update(existingPurchaseOrder); 
+        await _context.SaveChangesAsync(); 
 
         return Ok("Purchase Order updated successfully");
     }
