@@ -4,11 +4,11 @@ using CustomSage300WebApi.Dtos;
 using CustomSage300WebApi.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 
 namespace CustomSage300WebApi.Controllers;
 
 [Route("api/[controller]")]
+[ApiController]
 public class SageUsersController : ControllerBase
 {
     private readonly IMapper _mapper;
@@ -43,8 +43,6 @@ public class SageUsersController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<SageUserRequest>> CreateSageUser(SageUserRequest createSageUserRequest)
     {
-        // Log the request
-        Console.WriteLine($"Received request: {JsonConvert.SerializeObject(createSageUserRequest)}");
 
         if(!ModelState.IsValid)
             return BadRequest("Invalid data provided");
@@ -69,7 +67,7 @@ public class SageUsersController : ControllerBase
             return BadRequest($"An error occurred while creating Sage User\n {e}");
         }
     }
-    
+     
     [HttpPut("{id}")]
     public async Task<ActionResult<SageUserRequest>> UpdateSageUser(int id, SageUserRequest updateSageUserRequest)
     {

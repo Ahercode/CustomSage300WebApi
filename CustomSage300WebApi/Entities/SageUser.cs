@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace CustomSage300WebApi.Entities;
-
 [Table("SageUser")]
 public partial class SageUser
 {

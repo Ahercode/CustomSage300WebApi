@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CustomSage300WebApi.Controllers;
 
 [Route("api/[controller]")]
+[ApiController]
 public class SageModulesController: ControllerBase
 {
     private readonly IMapper _mapper;
@@ -58,10 +59,9 @@ public class SageModulesController: ControllerBase
 
             await _context.SageModules.AddAsync(sageModule);
             await _context.SaveChangesAsync();
-
             return Ok("Sage Module created successfully");
-
         }
+        
         catch (Exception e)
         {
             return BadRequest("An error occurred while creating Sage Module");
