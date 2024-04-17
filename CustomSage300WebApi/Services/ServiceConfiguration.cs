@@ -7,7 +7,5 @@ public static class ServiceConfiguration
     public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<IEmailService, EmailService>();
-        // services.AddScoped<IAppraisalService, AppraisalService>();
-        // services.AddScoped<ISageModuleService, SageModuleService>();
     }
 }

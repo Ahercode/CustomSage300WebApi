@@ -15,7 +15,7 @@ public class EmailService : IEmailService
         _configuration = configuration;
     }
 
-    public void SendEmail(string to, string subject, string body)
+    public async Task SendEmail(string to, string subject, string body)
     {
         var from = _configuration["EmailConfiguration:From"];
         var smtpServer = _configuration["EmailConfiguration:SmtpServer"];
@@ -29,10 +29,19 @@ public class EmailService : IEmailService
         email.Subject = subject;
         email.Body = new TextPart(TextFormat.Plain) { Text = body };
 
-        var smtpClient = new SmtpClient();
-        smtpClient.Connect(smtpServer, int.Parse(port), SecureSocketOptions.StartTls);
-        smtpClient.Authenticate(smtpUsername, smtpPassword);
-        smtpClient.Send(email);
-        smtpClient.Disconnect(true);
+        try
+        {
+            using var smtpClient = new SmtpClient();
+            await smtpClient.ConnectAsync(smtpServer, int.Parse(port), SecureSocketOptions.StartTls);
+            await smtpClient.AuthenticateAsync(smtpUsername, smtpPassword);
+            await smtpClient.SendAsync(email);
+            await smtpClient.DisconnectAsync(true);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
     }
 }

@@ -1,11 +1,10 @@
 using AutoMapper;
 using CustomSage300WebApi.DBContext;
 using CustomSage300WebApi.Dtos;
-using CustomSage300WebApi.Entities;
+using CustomSage300WebApi.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 
 namespace CustomSage300WebApi.Controllers;
 
@@ -15,11 +14,13 @@ public class PurchaseOrderController : ControllerBase
 {
     private readonly SageDbContext _context;
     private readonly IMapper _mapper;
+    private readonly IEmailService _emailService;
     
-    public PurchaseOrderController(SageDbContext context, IMapper mapper)
+    public PurchaseOrderController(SageDbContext context, IMapper mapper, IEmailService emailService)
     {
         _context = context;
         _mapper = mapper;
+        _emailService = emailService;
     }
     
     // all purchase order 
@@ -60,6 +61,23 @@ public class PurchaseOrderController : ControllerBase
         await _context.SaveChangesAsync(); 
 
         return Ok("Purchase Order updated successfully");
+    }
+    
+    [HttpPost("SendEmail")]
+    public async Task<IActionResult> SendEmail([FromBody] EmailRequest emailRequest)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest("Invalid data provided");
+        try
+        {
+           await _emailService.SendEmail(emailRequest.To, emailRequest.Subject, emailRequest.Body);
+            
+            return Ok("Email sent successfully");
+        }
+        catch (Exception e)
+        {
+            return BadRequest("An error occurred while sending email");
+        }
     }
     
 }

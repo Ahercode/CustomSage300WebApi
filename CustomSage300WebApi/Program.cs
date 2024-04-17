@@ -1,4 +1,5 @@
 using CustomSage300WebApi.DBContext;
+using CustomSage300WebApi.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSwaggerGen();
+builder.Services.AddServices();
 
 var app = builder.Build();
 
