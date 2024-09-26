@@ -15,6 +15,6 @@ public partial class SageModule
     [StringLength(10)]
     public string? Code { get; set; }
 
-    [StringLength(10)]
+    [StringLength(50)]
     public string? Name { get; set; }
 }

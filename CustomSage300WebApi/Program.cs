@@ -1,6 +1,7 @@
 using CustomSage300WebApi.DBContext;
 using CustomSage300WebApi.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ var workFlowConnection = builder.Configuration.GetConnectionString("WorkFlowConn
 builder.Services.AddDbContext<SageDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<WorkFlowDbContext>(options => options.UseSqlServer(workFlowConnection));
 builder.Services.AddControllers().AddNewtonsoftJson();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -18,10 +19,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddServices();
 
 var app = builder.Build();
+var env = app.Environment;
 
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("../swagger/v1/swagger.json", "AhercodeWebAPI v1"));
 
+app.UseStaticFiles( new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Uploads")),
+    RequestPath = "/Uploads"
+});
 app.UseHttpsRedirection();
 app.UseCors(options=> {
 

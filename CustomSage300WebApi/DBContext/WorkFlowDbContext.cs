@@ -16,18 +16,28 @@ public partial class WorkFlowDbContext : DbContext
     {
     }
 
+    public virtual DbSet<SageFile> SageFiles { get; set; }
+
     public virtual DbSet<SageModule> SageModules { get; set; }
 
     public virtual DbSet<SageModuleUser> SageModuleUsers { get; set; }
 
     public virtual DbSet<SageUser> SageUsers { get; set; }
+
+    public virtual DbSet<WorkFlowDetail> WorkFlowDetails { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<SageFile>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_SageF");
+
+            entity.Property(e => e.ItemId).IsFixedLength();
+        });
+
         modelBuilder.Entity<SageModule>(entity =>
         {
             entity.Property(e => e.Code).IsFixedLength();
-            entity.Property(e => e.Name).IsFixedLength();
         });
 
         modelBuilder.Entity<SageModuleUser>(entity =>
@@ -37,7 +47,6 @@ public partial class WorkFlowDbContext : DbContext
 
         modelBuilder.Entity<SageUser>(entity =>
         {
-            entity.Property(e => e.CompanyId).IsFixedLength();
             entity.Property(e => e.Status).IsFixedLength();
             entity.Property(e => e.isAdmin).IsFixedLength();
         });

@@ -7,6 +7,8 @@
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/AutoMapper.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Azure.Core.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Azure.Identity.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/BouncyCastle.Cryptography.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/MailKit.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Microsoft.AspNetCore.JsonPatch.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Microsoft.AspNetCore.OpenApi.dll
@@ -27,6 +29,7 @@
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Microsoft.OpenApi.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Microsoft.SqlServer.Server.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Microsoft.Win32.SystemEvents.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/MimeKit.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Newtonsoft.Json.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Newtonsoft.Json.Bson.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Swashbuckle.AspNetCore.Swagger.dll
@@ -34,9 +37,11 @@
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Configuration.ConfigurationManager.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Drawing.Common.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Formats.Asn1.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.IdentityModel.Tokens.Jwt.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Memory.Data.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Runtime.Caching.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Security.Cryptography.Pkcs.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Security.Cryptography.ProtectedData.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Security.Permissions.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/System.Windows.Extensions.dll
@@ -50,6 +55,7 @@
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+/Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/runtimes/win/lib/net7.0/System.Security.Cryptography.Pkcs.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
 /Users/philip/RiderProjects/CustomSage300WebApi/CustomSage300WebApi/bin/Release/net7.0/publish/CustomSage300WebApi.deps.json

@@ -1,6 +1,7 @@
 using AutoMapper;
 using CustomSage300WebApi.Dtos;
 using CustomSage300WebApi.Entities;
+using Microsoft.Win32.SafeHandles;
 
 namespace CustomSage300WebApi.MappingProfile;
 
@@ -16,5 +17,8 @@ public class RequestMapping : Profile
         CreateMap<SageModule, SageModuleResponse>();
         CreateMap<SageModuleUser, SageModuleUserResponse>();
         CreateMap<SageModuleUserRequest, SageModuleUser>();
+        CreateMap<SageFileRequest, SageFile>().ReverseMap();
+        CreateMap<WorkFlowDetail, WorkFlowDetailResponse>();
+        CreateMap<WorkFlowDetailRequest, WorkFlowDetail>();
     }
 }
